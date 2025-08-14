@@ -1,81 +1,131 @@
-import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, BarChart3 } from "lucide-react";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Building2, Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react';
 
-const Footer = () => {
+export const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+  
   return (
-    <footer className="bg-brand-secondary text-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="bg-gradient-to-r from-brandPrimary to-brandPrimary-dark text-white">
+      <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo y descripción */}
-          <div className="md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <BarChart3 className="h-8 w-8 text-brand-accent" />
-              <span className="text-2xl font-bold">PYME Credit AI</span>
-            </div>
-            <p className="text-gray-300 mb-4 max-w-md">
-              Democratizamos el acceso al crédito para PYMEs mediante inteligencia artificial, 
-              evaluando riesgos con datos no tradicionales para decisiones financieras más inclusivas.
-            </p>
-            <div className="flex space-x-4">
-              <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-brand-accent" />
-                <span className="text-sm text-gray-300">info@pymecreditai.com</span>
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <div className="p-2 rounded-lg bg-white/20">
+                <Building2 className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <span className="text-xl font-bold">PYME Credit AI</span>
+                <p className="text-xs text-white/80">Evaluación de Riesgo Financiero</p>
               </div>
             </div>
+            <p className="text-sm text-white/80 leading-relaxed">
+              Automatizamos la evaluación de riesgo financiero de PYMEs usando datos no tradicionales 
+              e inteligencia artificial para democratizar el acceso al crédito.
+            </p>
           </div>
-
-          {/* Enlaces rápidos */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
-            <ul className="space-y-2">
+          
+          {/* Enlaces principales */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold">Servicios</h3>
+            <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/" className="text-gray-300 hover:text-brand-accent transition-smooth">
-                  Inicio
+                <Link to="/analysis" className="text-white/80 hover:text-white transition-smooth">
+                  Análisis Financiero
                 </Link>
               </li>
               <li>
-                <Link to="/analysis" className="text-gray-300 hover:text-brand-accent transition-smooth">
-                  Análisis
+                <Link to="/dashboard" className="text-white/80 hover:text-white transition-smooth">
+                  Dashboard de Scoring
                 </Link>
               </li>
               <li>
-                <Link to="/dashboard" className="text-gray-300 hover:text-brand-accent transition-smooth">
-                  Dashboard
+                <Link to="/chat" className="text-white/80 hover:text-white transition-smooth">
+                  Chatbot Financiero
                 </Link>
               </li>
               <li>
-                <Link to="/chat" className="text-gray-300 hover:text-brand-accent transition-smooth">
-                  Chat IA
-                </Link>
+                <span className="text-white/80">Scraping de Redes Sociales</span>
+              </li>
+              <li>
+                <span className="text-white/80">Validación de RUC</span>
               </li>
             </ul>
           </div>
-
-          {/* Contacto */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Contacto</h3>
-            <ul className="space-y-2">
+          
+          {/* Información de contacto */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold">Contacto</h3>
+            <ul className="space-y-3 text-sm">
               <li className="flex items-center space-x-2">
-                <Phone className="h-4 w-4 text-brand-accent" />
-                <span className="text-gray-300">+593 2 234-5678</span>
+                <Mail className="h-4 w-4 text-brandAccent" />
+                <span className="text-white/80">info@pymecreditai.com</span>
               </li>
               <li className="flex items-center space-x-2">
-                <MapPin className="h-4 w-4 text-brand-accent" />
-                <span className="text-gray-300">Quito, Ecuador</span>
+                <Phone className="h-4 w-4 text-brandAccent" />
+                <span className="text-white/80">+593 2 123-4567</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <MapPin className="h-4 w-4 text-brandAccent" />
+                <span className="text-white/80">Quito, Ecuador</span>
               </li>
             </ul>
+          </div>
+          
+          {/* Redes sociales y enlaces legales */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold">Síguenos</h3>
+            <div className="flex space-x-3">
+              <a 
+                href="#" 
+                className="p-2 rounded-lg bg-white/20 hover:bg-white/30 transition-smooth"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+              <a 
+                href="#" 
+                className="p-2 rounded-lg bg-white/20 hover:bg-white/30 transition-smooth"
+                aria-label="Twitter"
+              >
+                <Twitter className="h-4 w-4" />
+              </a>
+              <a 
+                href="#" 
+                className="p-2 rounded-lg bg-white/20 hover:bg-white/30 transition-smooth"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
+            </div>
+            
+            <div className="space-y-2 text-sm">
+              <Link to="#" className="block text-white/80 hover:text-white transition-smooth">
+                Política de Privacidad
+              </Link>
+              <Link to="#" className="block text-white/80 hover:text-white transition-smooth">
+                Términos de Uso
+              </Link>
+              <Link to="#" className="block text-white/80 hover:text-white transition-smooth">
+                Seguridad de Datos
+              </Link>
+            </div>
           </div>
         </div>
-
-        <div className="border-t border-gray-600 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
-            © 2024 PYME Credit AI. Todos los derechos reservados. 
-            Desarrollado con tecnología de inteligencia artificial para el sector financiero.
-          </p>
+        
+        {/* Línea divisora y copyright */}
+        <div className="border-t border-white/20 mt-8 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-sm text-white/80">
+              © {currentYear} PYME Credit AI. Todos los derechos reservados.
+            </div>
+            <div className="text-sm text-white/80">
+              Desarrollado con ❤️ para el ecosistema financiero ecuatoriano
+            </div>
+          </div>
         </div>
       </div>
     </footer>
   );
 };
-
-export default Footer;
