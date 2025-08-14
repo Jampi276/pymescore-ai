@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
+import { sessionManager } from "@/lib/session";
 
 const Auth = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -78,13 +79,8 @@ const Auth = () => {
         return;
       }
 
-      // Guardar sesión
-      localStorage.setItem('session', JSON.stringify({
-        email: loginForm.email,
-        name: user.name,
-        loggedIn: true,
-        timestamp: Date.now()
-      }));
+      // Crear sesión usando sessionManager
+      sessionManager.createSession(loginForm.email, user.name);
 
       toast({
         title: "¡Bienvenido!",
